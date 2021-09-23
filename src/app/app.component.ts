@@ -26,6 +26,9 @@ export class AppComponent {
   spreadsheet!: ElementRef;
 
   chart() {
+    this.dataNames = [];
+    this.dataValues = [];
+
     this.aliasName = "day";
     this.aliasVal = "count";
     function getByAlias(item: any, alias: any) {
