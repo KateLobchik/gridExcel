@@ -57,12 +57,14 @@ export class AppComponent {
   }
 
 
-  update = function (instance: any, cell: any, x: any, y: any, value: any) {
+  update(instance: any, cell: any, x: any, y: any, value: any) {
     VALDATAS[y].info[x].value = value;
+    this.chart();
     //Скорее всего здесь нужна функция, которая будет вызывать повторную прорисовку графика
   }
 
   ngOnInit(): void {
+    this.update = this.update.bind(this);
     this.chart();
   }
 
@@ -85,20 +87,3 @@ export class AppComponent {
   }
 
 }
-
-  // dataNames = this.data.map((i) => {
-  //   return i.day
-  // });
-  // dataValues = this.data.map((i) => {
-  //   return i.value
-  // });
-
-  // createColums(namearr: any) {
-  //   return namearr.map((i: any) => {
-  //     return {
-  //       type: 'text',
-  //       title: i,
-  //       width: 150
-  //     }
-  //   })
-  // }
